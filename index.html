@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>מפתח Fullstack בכיר | מומחה PHP, Java & אופטימיזציית מערכות</title>
+    <meta
+      name="description"
+      content="שירותי פיתוח בוטיק למערכות מורכבות, שדרוג Legacy, שיפור מהירות ופיתוח MVP לסטארטאפים. 10 שנות ניסיון ב-High-end Engineering."
+    />
+    <meta
+      name="keywords"
+      content="מפתח פרילנסר, פיתוח PHP, פיתוח Java, בניית מערכות, פיתוח סטארטאפים, אופטימיזציית אתרים, SEO טכני, שדרוג Legacy, Fullstack Developer"
+    />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      defer
+      src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        font-family: "Assistant", sans-serif;
+        background-color: #020617;
+        color: #f8fafc;
+      }
+      .gradient-text {
+        background: linear-gradient(90deg, #38bdf8, #818cf8);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .glass {
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .hover-lift:hover {
+        transform: translateY(-8px);
+        transition: all 0.3s ease-in-out;
+      }
+      .reveal-item {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+      .reveal-item.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      [x-cloak] {
+        display: none !important;
+      }
+      /* Custom scrollbar for a touch of polish */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0f172a;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #38bdf8;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #818cf8;
+      }
+
+      /* scroll */
+      #projects-container {
+        scroll-snap-type: x mandatory; /* מכריח קפיצה בציר ה-X */
+        scroll-behavior: smooth;
+      }
+
+      #projects-container > div {
+        scroll-snap-align: center; /* נועל כל פרויקט למרכז המסך */
+      }
+    </style>
+  </head>
+  <body
+    x-data="{ scrolled: false }"
+    @scroll.window="scrolled = (window.pageYOffset > 20 ? true : false)"
+    class="antialiased"
+  >
+    <nav
+      :class="scrolled ? 'glass py-3' : 'bg-transparent glass py-6'"
+      class="fixed w-full z-50 transition-all duration-300 px-6 md:px-16 flex justify-between items-center"
+    >
+      <div class="text-2xl font-black tracking-tighter">
+        <span class="text-white">DEV</span
+        ><span class="text-sky-400">STRAT</span>
+      </div>
+      <div
+        class="hidden md:flex space-x-reverse space-x-8 font-medium text-sm uppercase tracking-widest"
+      >
+        <a href="#about" class="hover:text-sky-400 pt-2 transition">עלי</a>
+        <a href="#services" class="hover:text-sky-400 pt-2 transition"
+          >שירותים</a
+        >
+        <a href="#why-stable" class="hover:text-sky-400 pt-2 transition"
+          >למה תכנון נכון?</a
+        >
+        <a href="#portfolio" class="hover:text-sky-400 pt-2 transition"
+          >פרויקטים</a
+        >
+        <a
+          href="#contact"
+          class="bg-sky-500 hover:bg-sky-600 text-white px-6 py-2 rounded-full transition shadow-lg shadow-sky-500/20"
+          >צרו קשר</a
+        >
+      </div>
+    </nav>
+
+    <section
+      class="relative min-h-screen flex items-center pt-20 overflow-hidden"
+    >
+      <div
+        class="absolute top-0 right-0 w-[500px] h-[500px] bg-sky-600/10 rounded-full blur-[120px] -z-10 animate-pulse-slow"
+      ></div>
+      <div
+        class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center"
+      >
+        <div
+          x-data="{ show: false }"
+          x-init="setTimeout(() => show = true, 200)"
+          x-show="show"
+          x-transition:enter="transition ease-out duration-1000"
+          x-transition:enter-start="opacity-0 -translate-x-10"
+          x-transition:enter-end="opacity-100 translate-x-0"
+        >
+          <h2 class="text-sky-400 font-bold mb-4 flex items-center gap-2">
+            <span class="w-8 h-[2px] bg-sky-400"></span> 10 שנות הנדסת תוכנה
+            ממוקדת תוצאות
+          </h2>
+          <h1
+            class="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-[1.1]"
+          >
+            בניית מערכות <br /><span class="gradient-text">חסינות לעתיד</span>
+          </h1>
+          <p
+            class="text-slate-400 text-lg md:text-xl mb-10 max-w-lg leading-relaxed"
+          >
+            נמאס לך מכיבוי שריפות טכנולוגיות? אני בונה תשתיות חזקות, משדרג קוד
+            Legacy ומלווה סטארטאפים משלב הרעיון לסקייל.
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <a
+              href="#contact"
+              class="px-8 py-4 bg-sky-500 hover:bg-sky-600 text-white font-bold rounded-xl transition shadow-xl shadow-sky-500/20 text-center"
+              >בואו נבנה משהו גדול</a
+            >
+            <a
+              href="#portfolio"
+              class="px-8 py-4 glass text-white font-bold rounded-xl hover:bg-white/10 transition text-center"
+              >צפה בעבודות</a
+            >
+          </div>
+        </div>
+
+        <div
+          class="relative group"
+          x-data="{ show: false }"
+          x-init="setTimeout(() => show = true, 500)"
+          x-show="show"
+          x-transition:enter="transition ease-out duration-1000"
+          x-transition:enter-start="opacity-0 scale-95"
+          x-transition:enter-end="opacity-100 scale-100"
+        >
+          <div
+            class="absolute -inset-1 bg-gradient-to-r from-sky-500 to-indigo-500 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000"
+          ></div>
+          <div
+            class="relative aspect-square md:aspect-[4/5] bg-slate-800 rounded-2xl overflow-hidden border border-white/10 shadow-2xl"
+          >
+            <img
+              src="./media/images/profile.png"
+              alt="Profile"
+              class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700"
+            />
+            <div
+              class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-slate-900 to-transparent"
+            >
+              <p class="text-white font-bold text-xl">איתמר פאהן</p>
+              <p class="text-sky-400 text-sm">Senior Fullstack Architect</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="py-24 relative bg-slate-900/40">
+      <div
+        class="absolute top-1/4 left-0 w-80 h-80 bg-purple-500/10 rounded-full blur-[100px] -z-10"
+      ></div>
+      <div
+        class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center"
+      >
+        <div
+          class="relative"
+          x-data="{ show: false }"
+          x-intersect="show = true"
+          :class="{ 'reveal-item show': show }"
+          x-cloak
+        >
+          <img
+            src="./media/images/architecture.png"
+            alt="About Section Image"
+            class="rounded-2xl shadow-2xl border border-white/10 hover-lift"
+          />
+          <div
+            class="absolute -bottom-8 -left-8 bg-sky-500/80 text-white p-6 rounded-xl shadow-lg rotate-3"
+          >
+            <span class="text-3xl font-bold block">10+</span>
+            <span class="text-sm">שנות ניסיון</span>
+          </div>
+        </div>
+        <div
+          x-data="{ show: false }"
+          x-intersect="show = true"
+          :class="{ 'reveal-item show': show }"
+          x-cloak
+        >
+          <h2 class="text-4xl font-bold text-white mb-6">
+            עלי: הנדסת תוכנה ברמה אחרת
+          </h2>
+          <p class="text-slate-300 mb-6 leading-relaxed">
+            בעשור האחרון, צללתי לעומקן של מערכות מורכבות, משרתי Java כבדים
+            בארגונים גדולים ועד אפליקציות PHP זריזות בסטארטאפים. הניסיון שלי
+            איפשר לי לראות את התמונה הרחבה: קוד הוא לא רק פקודות למחשב, הוא
+            הבסיס לצמיחה, ליעילות ולשקט הנפשי של בעלי עסקים.
+          </p>
+          <p class="text-slate-300 mb-6 leading-relaxed">
+            אני לא רק "מתכנת" – אני ארכיטקט, יועץ ומוביל טכני שמתמחה בהפיכת
+            אתגרים טכנולוגיים להזדמנויות עסקיות. אני דוגל בקוד נקי, בארכיטקטורה
+            חסינה ובפתרונות שמחזיקים מעמד לאורך זמן, גם כשהעסק שלך מכפיל את
+            עצמו.
+          </p>
+          <p class="text-slate-300 leading-relaxed">
+            אם אתם מחפשים שותף טכנולוגי שיודע לחשוב מחוץ לקופסה ולספק ערך אמיתי,
+            הגעתם למקום הנכון.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="py-24 relative bg-sky-950/20">
+      <div class="container mx-auto px-6">
+        <div
+          class="max-w-3xl text-center mx-auto mb-16"
+          x-data="{ show: false }"
+          x-intersect="show = true"
+          :class="{ 'reveal-item show': show }"
+          x-cloak
+        >
+          <h2 class="text-4xl font-bold text-white mb-6 leading-tight">
+            פותר את הבעיות שמעכבות את
+            <span class="gradient-text">הצמיחה שלכם</span>
+          </h2>
+          <p class="text-slate-400 text-lg">
+            כשמערכת לא מתפקדת, העסק מפסיד כסף, לקוחות, ומוניטין. אני נכנס בדיוק
+            בנקודות האלו כדי להחזיר אתכם למסלול.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+          <div
+            class="relative p-8 rounded-3xl overflow-hidden hover-lift bg-gradient-to-br from-red-800/20 to-transparent border border-red-500/30"
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-red-500/10 to-transparent opacity-0 hover:opacity-100 transition duration-300"
+            ></div>
+            <div class="relative z-10 flex items-start gap-5">
+              <div
+                class="w-16 h-16 bg-red-500/20 text-red-400 rounded-xl flex items-center justify-center text-4xl flex-shrink-0"
+              >
+                💥
+              </div>
+              <div>
+                <h3 class="text-2xl font-bold text-white mb-3">
+                  האתר קרס בקמפיין?
+                </h3>
+                <p class="text-slate-300 leading-relaxed text-sm">
+                  ביום החשוב ביותר, השרת נכנע לעומס? אני בונה ארכיטקטורה חסינת
+                  תקלות וסקיילבילית (Scalability) ב-Java ו-PHP, שתשרוד גם את
+                  עומס הלקוחות הכבד ביותר.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="relative p-8 rounded-3xl overflow-hidden hover-lift bg-gradient-to-br from-amber-800/20 to-transparent border border-amber-500/30"
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-amber-500/10 to-transparent opacity-0 hover:opacity-100 transition duration-300"
+            ></div>
+            <div class="relative z-10 flex items-start gap-5">
+              <div
+                class="w-16 h-16 bg-amber-500/20 text-amber-400 rounded-xl flex items-center justify-center text-4xl flex-shrink-0"
+              >
+                🐢
+              </div>
+              <div>
+                <h3 class="text-2xl font-bold text-white mb-3">
+                  הכל מרגיש איטי ומסורבל?
+                </h3>
+                <p class="text-slate-300 leading-relaxed text-sm">
+                  משתמשים עוזבים אתר איטי. אני מבצע אופטימיזציית Backend, בסיסי
+                  נתונים, וקוד Front-end כדי להבטיח זמני טעינה מהירים וחווית
+                  משתמש חלקה.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="relative p-8 rounded-3xl overflow-hidden hover-lift bg-gradient-to-br from-blue-800/20 to-transparent border border-blue-500/30"
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-transparent opacity-0 hover:opacity-100 transition duration-300"
+            ></div>
+            <div class="relative z-10 flex items-start gap-5">
+              <div
+                class="w-16 h-16 bg-blue-500/20 text-blue-400 rounded-xl flex items-center justify-center text-4xl flex-shrink-0"
+              >
+                🚀
+              </div>
+              <div>
+                <h3 class="text-2xl font-bold text-white mb-3">
+                  צריך MVP לסטארטאפ שאין לו מתחרים?
+                </h3>
+                <p class="text-slate-300 leading-relaxed text-sm">
+                  הרעיון שלך מבריק, אבל איך בונים אותו נכון? אני מלווה סטארטאפים
+                  מבניית MVP ראשוני ועד תכנון מערכת שתגדל יחד אתכם.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="relative p-8 rounded-3xl overflow-hidden hover-lift bg-gradient-to-br from-teal-800/20 to-transparent border border-teal-500/30"
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-teal-500/10 to-transparent opacity-0 hover:opacity-100 transition duration-300"
+            ></div>
+            <div class="relative z-10 flex items-start gap-5">
+              <div
+                class="w-16 h-16 bg-teal-500/20 text-teal-400 rounded-xl flex items-center justify-center text-4xl flex-shrink-0"
+              >
+                ⚙️
+              </div>
+              <div>
+                <h3 class="text-2xl font-bold text-white mb-3">
+                  נמאס ממערכת שדורשת תיקונים כל הזמן?
+                </h3>
+                <p class="text-slate-300 leading-relaxed text-sm">
+                  קוד לא יציב הוא בור ללא תחתית של זמן וכסף. אני מתמחה
+                  ב-Refactoring ובניית תשתיות קוד נקיות ויציבות, שיפסיקו את מעגל
+                  התיקונים האינסופי.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="relative p-8 rounded-3xl overflow-hidden hover-lift bg-gradient-to-br from-purple-800/20 to-transparent border border-purple-500/30"
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-transparent opacity-0 hover:opacity-100 transition duration-300"
+            ></div>
+            <div class="relative z-10 flex items-start gap-5">
+              <div
+                class="w-16 h-16 bg-purple-500/20 text-purple-400 rounded-xl flex items-center justify-center text-4xl flex-shrink-0"
+              >
+                🛡️
+              </div>
+              <div>
+                <h3 class="text-2xl font-bold text-white mb-3">
+                  דואגים לאבטחת המידע של הלקוחות?
+                </h3>
+                <p class="text-slate-300 leading-relaxed text-sm">
+                  פריצות אבטחה הן סיוט יח"צ ופיננסי. אני מטמיע פרוטוקולי אבטחה
+                  מתקדמים ושיטות עבודה מומלצות כדי להגן על המערכת והמידע הרגיש
+                  שלכם.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="relative p-8 rounded-3xl overflow-hidden hover-lift bg-gradient-to-br from-green-800/20 to-transparent border border-green-500/30"
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-green-500/10 to-transparent opacity-0 hover:opacity-100 transition duration-300"
+            ></div>
+            <div class="relative z-10 flex items-start gap-5">
+              <div
+                class="w-16 h-16 bg-green-500/20 text-green-400 rounded-xl flex items-center justify-center text-4xl flex-shrink-0"
+              >
+                💡
+              </div>
+              <div>
+                <h3 class="text-2xl font-bold text-white mb-3">
+                  רוצים משוב מקצועי אמיתי על המערכת?
+                </h3>
+                <p class="text-slate-300 leading-relaxed text-sm">
+                  לפעמים כל מה שצריך זה עין חיצונית ומנוסה. אני מציע שירותי
+                  ייעוץ ו-Code Audit כדי למצוא את צווארי הבקבוק ולתת כיוון
+                  אסטרטגי.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="why-stable" class="py-24 relative bg-slate-900/40">
+      <div
+        class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center"
+      >
+        <div
+          x-data="{ show: false }"
+          x-intersect="show = true"
+          :class="{ 'reveal-item show': show }"
+          x-cloak
+        >
+          <h2 class="text-4xl font-bold text-white mb-6">
+            מעבר לקוד: למה תכנון נכון שווה לכם כסף?
+          </h2>
+          <p class="text-slate-300 mb-6 leading-relaxed">
+            כבעל עסק, הקוד שמאחורי הקלעים אולי לא נראה לכם קריטי כמו העיצוב או
+            השיווק. אבל האמת היא, שתכנון מערכת חלש הוא כמו יסודות רעועים לבניין
+            – במוקדם או במאוחר הוא יקרוס ויגרור אחריו הפסדים אדירים. מערכת
+            יציבה, מהירה ובטוחה היא לא מותרות, זו השקעה חכמה שמחזירה את עצמה פי
+            כמה.
+          </p>
+          <ul class="list-disc list-inside text-slate-300 mb-6 space-y-3">
+            <li>
+              <strong class="text-sky-400">מוניטין ובטחון לקוחות:</strong> אתר
+              שנופל או איטי משדר חוסר מקצועיות ומבריח לקוחות פוטנציאליים. אבטחה
+              ירודה עלולה להוביל לאיבוד נתונים ולפגיעה קשה באמון.
+            </li>
+            <li>
+              <strong class="text-sky-400">יתרון תחרותי ו-SEO:</strong> מהירות
+              אתר היא פקטור קריטי בדירוג גוגל. מערכת אופטימלית עולה גבוה יותר
+              בתוצאות החיפוש ומביאה יותר תנועה אורגנית וחינמית.
+            </li>
+            <li>
+              <strong class="text-sky-400">חיסכון בעלויות לטווח ארוך:</strong>
+              קוד נקי ותכנון נכון חוסכים שעות פיתוח מיותרות, מונעים באגים יקרים
+              ומאפשרים הוספת פיצ'רים חדשים בקלות ובמהירות.
+            </li>
+            <li>
+              <strong class="text-sky-400">שקט נפשי ומיקוד עסקי:</strong> כשאתם
+              יודעים שהמערכת שלכם עובדת בצורה אמינה, אתם יכולים להתמקד במה שאתם
+              טובים בו – ניהול וצמיחת העסק.
+            </li>
+          </ul>
+          <p class="text-slate-300 leading-relaxed">
+            אני כאן כדי להבטיח שהתשתית הטכנולוגית שלכם תהיה נכס, לא נטל.
+          </p>
+        </div>
+        <div
+          class="relative"
+          x-data="{ show: false }"
+          x-intersect="show = true"
+          :class="{ 'reveal-item show': show }"
+          x-cloak
+        >
+          <img
+            src="./media/images/secure-code.png"
+            alt="Why Stable System Image"
+            class="rounded-2xl shadow-2xl border border-white/10 hover-lift"
+          />
+          <div
+            class="absolute -top-8 -right-8 bg-indigo-500/80 text-white p-6 rounded-xl shadow-lg -rotate-3"
+          >
+            <span class="text-3xl font-bold block">השקעה</span>
+            <span class="text-sm">במקום הוצאה</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- old projects
+    <section id="portfolio" class="py-24 bg-slate-900/30">
+      <div class="container mx-auto px-6">
+        <div
+          class="flex flex-col md:flex-row justify-between items-center mb-12 gap-8"
+        >
+          <div
+            x-data="{ show: false }"
+            x-intersect="show = true"
+            :class="{ 'reveal-item show': show }"
+            x-cloak
+          >
+            <h2 class="text-4xl font-bold text-white mb-4">פרויקטים נבחרים</h2>
+            <p class="text-slate-400 text-lg">
+              פתרונות Custom-made למערכות מורכבות, מהרעיון ועד ההשקה.
+            </p>
+          </div>
+          <a
+            href="#contact"
+            class="flex-shrink-0 px-8 py-3 glass text-sky-400 font-bold rounded-xl hover:bg-white/10 transition"
+            x-data="{ show: false }"
+            x-intersect="show = true"
+            :class="{ 'reveal-item show': show }"
+            x-cloak
+          >
+            בואו נדבר על הפרויקט שלכם →
+          </a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <div class="group cursor-pointer glass rounded-2xl p-6 hover-lift">
+            <div
+              class="relative overflow-hidden rounded-xl mb-6 aspect-video bg-slate-800"
+            >
+              <img
+                src="./media/images/lachatuna.jpg"
+                alt="Project 1"
+                class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+              />
+              <div
+                class="absolute inset-0 bg-sky-600/20 opacity-0 group-hover:opacity-100 transition duration-500"
+              ></div>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-2 italic">
+              שדרוג ארכיטקטורת eCommerce: מהירות ויציבות
+            </h3>
+            <p class="text-slate-400 mb-4">
+              ביצעתי Refactoring למערכת קיימת ב-PHP, הטמעתי Cache Layer מתקדם,
+              וחיברתי API מורכב לסנכרון מלאי בזמן אמת, מה שהביא לשיפור מהירות
+              טעינה של 60% ויציבות תחת עומס.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="text-xs font-bold py-1 px-3 glass rounded-full text-sky-400"
+                >PHP 8.2</span
+              >
+              <span
+                class="text-xs font-bold py-1 px-3 glass rounded-full text-sky-400"
+                >Laravel</span
+              >
+              <span
+                class="text-xs font-bold py-1 px-3 glass rounded-full text-sky-400"
+                >Redis</span
+              >
+              <span
+                class="text-xs font-bold py-1 px-3 glass rounded-full text-sky-400"
+                >MySQL</span
+              >
+            </div>
+          </div>
+          <div class="group cursor-pointer glass rounded-2xl p-6 hover-lift">
+            <div
+              class="relative overflow-hidden rounded-xl mb-6 aspect-video bg-slate-800"
+            >
+              <img
+                src="./media/images/groove.png"
+                alt="Project 2"
+                class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+              />
+              <div
+                class="absolute inset-0 bg-indigo-600/20 opacity-0 group-hover:opacity-100 transition duration-500"
+              ></div>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-2 italic">
+              פיתוח Core לסטארטאפ פינטק: אבטחה וביצועים
+            </h3>
+            <p class="text-slate-400 mb-4">
+              בניתי את הליבה הטכנולוגית (MVP) לסטארטאפ בתחום הפינטק מאפס, תוך
+              שימוש ב-Java Spring Boot עם דגש חסר פשרות על אבטחת מידע,
+              סקיילביליות וביצועים גבוהים.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="text-xs font-bold py-1 px-3 glass rounded-full text-indigo-400"
+                >Java</span
+              >
+              <span
+                class="text-xs font-bold py-1 px-3 glass rounded-full text-indigo-400"
+                >Spring Boot</span
+              >
+              <span
+                class="text-xs font-bold py-1 px-3 glass rounded-full text-indigo-400"
+                >PostgreSQL</span
+              >
+              <span
+                class="text-xs font-bold py-1 px-3 glass rounded-full text-indigo-400"
+                >Docker</span
+              >
+            </div>
+          </div>
+          <div class="group cursor-pointer glass rounded-2xl p-6 hover-lift">
+            <div
+              class="relative overflow-hidden rounded-xl mb-6 aspect-video bg-slate-800"
+            >
+              <img
+                src="./media/images/lachatuna.jpg"
+                alt="Project 1"
+                class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+              />
+              <div
+                class="absolute inset-0 bg-sky-600/20 opacity-0 group-hover:opacity-100 transition duration-500"
+              ></div>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-2 italic">
+              שדרוג ארכיטקטורת eCommerce: מהירות ויציבות
+            </h3>
+            <p class="text-slate-400 mb-4">
+              ביצעתי Refactoring למערכת קיימת ב-PHP, הטמעתי Cache Layer מתקדם,
+              וחיברתי API מורכב לסנכרון מלאי בזמן אמת, מה שהביא לשיפור מהירות
+              טעינה של 60% ויציבות תחת עומס.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="text-xs font-bold py-1 px-3 glass rounded-full text-sky-400"
+                >PHP 8.2</span
+              >
+              <span
+                class="text-xs font-bold py-1 px-3 glass rounded-full text-sky-400"
+                >Laravel</span
+              >
+              <span
+                class="text-xs font-bold py-1 px-3 glass rounded-full text-sky-400"
+                >Redis</span
+              >
+              <span
+                class="text-xs font-bold py-1 px-3 glass rounded-full text-sky-400"
+                >MySQL</span
+              >
+            </div>
+          </div>
+          <div class="group cursor-pointer glass rounded-2xl p-6 hover-lift">
+            <div
+              class="relative overflow-hidden rounded-xl mb-6 aspect-video bg-slate-800"
+            >
+              <img
+                src="./media/images/groove.png"
+                alt="Project 2"
+                class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+              />
+              <div
+                class="absolute inset-0 bg-indigo-600/20 opacity-0 group-hover:opacity-100 transition duration-500"
+              ></div>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-2 italic">
+              פיתוח Core לסטארטאפ פינטק: אבטחה וביצועים
+            </h3>
+            <p class="text-slate-400 mb-4">
+              בניתי את הליבה הטכנולוגית (MVP) לסטארטאפ בתחום הפינטק מאפס, תוך
+              שימוש ב-Java Spring Boot עם דגש חסר פשרות על אבטחת מידע,
+              סקיילביליות וביצועים גבוהים.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="text-xs font-bold py-1 px-3 glass rounded-full text-indigo-400"
+                >Java</span
+              >
+              <span
+                class="text-xs font-bold py-1 px-3 glass rounded-full text-indigo-400"
+                >Spring Boot</span
+              >
+              <span
+                class="text-xs font-bold py-1 px-3 glass rounded-full text-indigo-400"
+                >PostgreSQL</span
+              >
+              <span
+                class="text-xs font-bold py-1 px-3 glass rounded-full text-indigo-400"
+                >Docker</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    -->
+
+    <!-- start new projects-->
+    <section id="portfolio" class="relative bg-slate-900/30">
+      <div class="relative h-[300vh]" id="horizontal-scroll-wrapper">
+        <div
+          class="sticky top-0 h-screen flex flex-col justify-center overflow-hidden"
+        >
+          <div class="container mx-auto px-6 mb-12">
+            <div
+              class="flex flex-col md:flex-row justify-between items-end gap-8"
+            >
+              <div>
+                <h2 class="text-4xl font-bold text-white mb-4">
+                  פרויקטים נבחרים
+                </h2>
+                <p class="text-slate-400 text-lg max-w-xl">
+                  פתרונות Custom-made למערכות מורכבות, מהרעיון ועד ההשקה.
+                </p>
+              </div>
+              <a
+                href="#contact"
+                class="hidden md:block px-8 py-3 glass text-sky-400 font-bold rounded-xl hover:bg-white/10 transition"
+              >
+                בואו נדבר על הפרויקט שלכם →
+              </a>
+            </div>
+          </div>
+
+          <div
+            class="flex flex-nowrap gap-10 px-[10vw] md:px-[10%] will-change-transform transition-transform duration-500 ease-out"
+            id="projects-container"
+          >
+            <div
+              class="flex-shrink-0 w-[85vw] md:w-[450px] group cursor-pointer glass rounded-2xl p-6 hover-lift"
+            >
+              <div
+                class="relative overflow-hidden rounded-xl mb-6 aspect-video bg-slate-800"
+              >
+                <img
+                  src="./media/images/lachatuna.jpg"
+                  alt="Project 1"
+                  class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                />
+                <div
+                  class="absolute inset-0 bg-sky-600/20 opacity-0 group-hover:opacity-100 transition duration-500"
+                ></div>
+              </div>
+              <h3
+                class="text-2xl font-bold text-white mb-2 italic leading-tight"
+              >
+                שדרוג ארכיטקטורת eCommerce: מהירות ויציבות
+              </h3>
+              <p class="text-slate-400 mb-4 text-sm">
+                ביצעתי Refactoring למערכת קיימת ב-PHP, הטמעתי Cache Layer מתקדם
+                ושיפרתי ביצועים ב-60%.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="text-[10px] font-bold py-1 px-2 glass rounded-full text-sky-400 uppercase"
+                  >PHP 8.2</span
+                >
+                <span
+                  class="text-[10px] font-bold py-1 px-2 glass rounded-full text-sky-400 uppercase"
+                  >Laravel</span
+                >
+              </div>
+            </div>
+
+            <div
+              class="flex-shrink-0 w-[85vw] md:w-[450px] group cursor-pointer glass rounded-2xl p-6 hover-lift"
+            >
+              <div
+                class="relative overflow-hidden rounded-xl mb-6 aspect-video bg-slate-800"
+              >
+                <img
+                  src="./media/images/groove.png"
+                  alt="Project 2"
+                  class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                />
+                <div
+                  class="absolute inset-0 bg-indigo-600/20 opacity-0 group-hover:opacity-100 transition duration-500"
+                ></div>
+              </div>
+              <h3
+                class="text-2xl font-bold text-white mb-2 italic leading-tight"
+              >
+                פיתוח Core לסטארטאפ פינטק: אבטחה
+              </h3>
+              <p class="text-slate-400 mb-4 text-sm">
+                בניית ליבה טכנולוגית (MVP) מאפס ב-Java Spring Boot עם דגש על
+                אבטחה מקסימלית.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="text-[10px] font-bold py-1 px-2 glass rounded-full text-indigo-400 uppercase"
+                  >Java</span
+                >
+                <span
+                  class="text-[10px] font-bold py-1 px-2 glass rounded-full text-indigo-400 uppercase"
+                  >Docker</span
+                >
+              </div>
+            </div>
+
+            <div
+              class="flex-shrink-0 w-[85vw] md:w-[450px] group cursor-pointer glass rounded-2xl p-6 hover-lift"
+            >
+              <div
+                class="relative overflow-hidden rounded-xl mb-6 aspect-video bg-slate-800"
+              >
+                <img
+                  src="./media/images/lachatuna.jpg"
+                  alt="Project 3"
+                  class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                />
+              </div>
+              <h3
+                class="text-2xl font-bold text-white mb-2 italic leading-tight"
+              >
+                מערכת ניהול נתונים מורכבת
+              </h3>
+              <p class="text-slate-400 mb-4 text-sm">
+                פיתוח דאשבורדים בזמן אמת עבור מערכות תעשייתיות גדולות.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="text-[10px] font-bold py-1 px-2 glass rounded-full text-sky-400 uppercase"
+                  >React</span
+                >
+                <span
+                  class="text-[10px] font-bold py-1 px-2 glass rounded-full text-sky-400 uppercase"
+                  >PostgreSQL</span
+                >
+              </div>
+            </div>
+
+            <div
+              class="flex-shrink-0 w-[85vw] md:w-[450px] group cursor-pointer glass rounded-2xl p-6 hover-lift"
+            >
+              <div
+                class="relative overflow-hidden rounded-xl mb-6 aspect-video bg-slate-800"
+              >
+                <img
+                  src="./media/images/groove.png"
+                  alt="Project 4"
+                  class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                />
+              </div>
+              <h3
+                class="text-2xl font-bold text-white mb-2 italic leading-tight"
+              >
+                אופטימיזציית תשתיות ענן
+              </h3>
+              <p class="text-slate-400 mb-4 text-sm">
+                ניהול והקמת תשתיות AWS חסינות תקלות ללקוחות Enterprise.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="text-[10px] font-bold py-1 px-2 glass rounded-full text-indigo-400 uppercase"
+                  >AWS</span
+                >
+                <span
+                  class="text-[10px] font-bold py-1 px-2 glass rounded-full text-indigo-400 uppercase"
+                  >Kubernetes</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- end projects-->
+
+    <section id="contact" class="py-24 relative overflow-hidden">
+      <div class="container mx-auto px-6 text-center">
+        <div
+          class="glass max-w-4xl mx-auto p-12 rounded-[3rem] border-sky-500/20 relative overflow-hidden"
+        >
+          <div
+            class="absolute -top-24 -right-24 w-64 h-64 bg-sky-500/20 rounded-full blur-[80px]"
+          ></div>
+
+          <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+            צריכים עין מקצועית על המערכת שלכם?
+          </h2>
+          <p class="text-slate-300 text-lg mb-10 max-w-2xl mx-auto italic">
+            "אני לא לוקח כל פרויקט, אלא רק כאלו שבהם אני יכול להביא ערך משמעותי
+            ואמיתי."
+          </p>
+
+          <form class="grid md:grid-cols-2 gap-4 max-w-2xl mx-auto text-right">
+            <input
+              type="text"
+              placeholder="שם מלא"
+              class="w-full p-4 glass rounded-xl focus:outline-none focus:border-sky-500 transition placeholder-slate-400"
+              aria-label="שם מלא"
+            />
+            <input
+              type="email"
+              placeholder="אימייל"
+              class="w-full p-4 glass rounded-xl focus:outline-none focus:border-sky-500 transition placeholder-slate-400"
+              aria-label="אימייל"
+            />
+            <textarea
+              placeholder="ספרו לי קצת על האתגרים הטכנולוגיים שלכם..."
+              class="w-full p-4 glass rounded-xl md:col-span-2 h-32 focus:outline-none focus:border-sky-500 transition placeholder-slate-400"
+              aria-label="תיאור אתגרים"
+            ></textarea>
+            <button
+              type="submit"
+              class="md:col-span-2 w-full py-4 bg-sky-500 text-white font-black rounded-xl hover:bg-sky-600 transition duration-300 uppercase tracking-widest shadow-lg shadow-sky-500/20"
+            >
+              שלח בקשה למשוב מקצועי
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer
+      class="py-12 border-t border-white/5 text-center text-slate-500 text-sm"
+    >
+      <p>
+        © 2026 – Senior Fullstack Engineering & Consultation. כל הזכויות שמורות.
+      </p>
+    </footer>
+
+    <script>
+      document.addEventListener("alpine:init", () => {
+        // הגדרת האובזרבר לאנימציות חשיפה (Reveal on Scroll)
+        const observerOptions = {
+          root: null, // משתמש ב-viewport כבסיס
+          threshold: 0.15, // האלמנט יתחיל להופיע כש-15% ממנו נראה
+          rootMargin: "0px 0px -50px 0px", // יופעל מעט לפני שהאלמנט נכנס לגמרי
+        };
+
+        const revealObserver = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              // הוספת מחלקת האנימציה
+              entry.target.classList.add("show");
+              // הפסקת המעקב אחרי שהאלמנט כבר נחשף
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
+
+        // הפעלה על כל האלמנטים שצריכים אנימציה
+        document.querySelectorAll(".reveal-item").forEach((el) => {
+          revealObserver.observe(el);
+        });
+      });
+
+      // ניהול שליחת הטופס - אינטראקציה ראשונית
+      const contactForm = document.querySelector("form");
+      if (contactForm) {
+        contactForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // אנימציית כפתור בזמן "שליחה"
+          const btn = this.querySelector("button");
+          const originalText = btn.innerText;
+          btn.innerText = "שולח...";
+          btn.disabled = true;
+          btn.classList.add("opacity-50", "cursor-not-allowed");
+
+          // סימולציה של שליחה (כאן תוכל לחבר שירות כמו Formspree או EmailJS בעתיד)
+          setTimeout(() => {
+            alert(
+              "תודה על הפנייה! ההודעה התקבלה. אצור איתך קשר בהקדם למתן משוב מקצועי על המערכת שלך."
+            );
+            btn.innerText = originalText;
+            btn.disabled = false;
+            btn.classList.remove("opacity-50", "cursor-not-allowed");
+            this.reset();
+          }, 1500);
+        });
+      }
+
+      // סגירת תפריט מובייל בלחיצה על לינק (למקרה שתוסיף תפריט המבורגר)
+      document.querySelectorAll("nav a").forEach((link) => {
+        link.addEventListener("click", () => {
+          // כאן אפשר להוסיף לוגיקה לסגירת מובייל אם תרצה
+        });
+      });
+
+      // projects scroll
+      window.addEventListener("scroll", () => {
+        const wrapper = document.getElementById("portfolio");
+        const content = document.getElementById("projects-container");
+
+        if (!wrapper || !content) return;
+
+        const rect = wrapper.getBoundingClientRect();
+
+        if (rect.top <= 0 && rect.bottom >= window.innerHeight) {
+          let rawProgress =
+            Math.abs(rect.top) / (rect.height - window.innerHeight);
+          const numberOfProjects = content.children.length;
+
+          const progress =
+            Math.round(rawProgress * (numberOfProjects - 1)) /
+            (numberOfProjects - 1);
+
+          const scrollDistance = content.scrollWidth - window.innerWidth;
+          const moveX = progress * scrollDistance;
+
+          content.style.transform = `translateX(${moveX}px)`;
+        }
+      });
+
+      const schema = {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        name: "איתמר פאהן",
+        jobTitle: "Senior Fullstack Developer",
+        description:
+          "מומחה בבניית אתרים ותכנון ובניית מערכות מורכבות עם מעל ל- 10 שנות ניסיון.",
+        url: window.location.href,
+      };
+      const script = document.createElement("script");
+      script.type = "application/ld+json";
+      script.text = JSON.stringify(schema);
+      document.head.appendChild(script);
+    </script>
+  </body>
+</html>
