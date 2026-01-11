@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 # Link to your sitemap
-Sitemap: https://bigitimi.github.io/sitemap.xml
+Sitemap: https://devstart.dev/sitemap.xml
