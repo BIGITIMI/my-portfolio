@@ -145,7 +145,7 @@
         class="absolute top-0 right-0 w-[500px] h-[500px] bg-sky-600/10 rounded-full blur-[120px] -z-10 animate-pulse-slow"
       ></div>
       <div
-        class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center"
+        class="container mx-auto px-6 mt-7 pb-5 grid md:grid-cols-2 gap-12 items-center"
       >
         <div
           x-data="{ show: false }"
@@ -156,19 +156,23 @@
           x-transition:enter-end="opacity-100 translate-x-0"
         >
           <h2 class="text-sky-400 font-bold mb-4 flex items-center gap-2">
-            <span class="w-8 h-[2px] bg-sky-400"></span> 10 שנות הנדסת תוכנה
+            <span class="w-8 h-[2px] bg-sky-400"></span> 12 שנות הנדסת תוכנה
             ממוקדת תוצאות
           </h2>
           <h1
-            class="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-[1.1]"
+            class="text-3xl md:text-5xl lg:text-7xl font-extrabold text-white mb-6 leading-[1.1]"
           >
             בניית אתרים <br /><span class="gradient-text">שעובדים בשבילך!</span>
           </h1>
+          <p class="text-slate-400 text-lg md:text-xl max-w-lg leading-relaxed">
+            העסק שלך צריך אתר מקצועי?
+            <br />
+            אתר שיביא לקוחות + יבצע מכירות + יתן מענה טוב ללקוחות?
+          </p>
           <p
-            class="text-slate-400 text-lg md:text-xl mb-10 max-w-lg leading-relaxed"
+            class="text-slate-400 font-bold text-lg md:text-xl mb-10 max-w-lg leading-relaxed"
           >
-            נמאס לך מכיבוי שריפות טכנולוגיות? אני בונה תשתיות חזקות, משדרג קוד
-            Legacy ומלווה סטארטאפים משלב הרעיון לסקייל.
+            זו בדיוק המומחיות שלי.
           </p>
           <div class="flex flex-wrap gap-4">
             <a
@@ -215,7 +219,10 @@
       </div>
     </section>
 
-    <section id="about" class="py-24 relative bg-slate-900/40">
+    <section
+      id="about"
+      class="py-10 md:py-18 lg:py-24 relative bg-slate-900/40"
+    >
       <div
         class="absolute top-1/4 left-0 w-80 h-80 bg-purple-500/10 rounded-full blur-[100px] -z-10"
       ></div>
@@ -248,14 +255,14 @@
           :class="{ 'reveal-item show': show }"
           x-cloak
         >
-          <h2 class="text-4xl font-bold text-white mb-6">
+          <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
             עלי: הנדסת תוכנה ברמה אחרת
           </h2>
           <p class="text-slate-300 mb-6 leading-relaxed">
-            בעשור האחרון, צללתי לעומקן של מערכות מורכבות, משרתי Java כבדים
-            בארגונים גדולים ועד אפליקציות PHP זריזות בסטארטאפים. הניסיון שלי
-            איפשר לי לראות את התמונה הרחבה: קוד הוא לא רק פקודות למחשב, הוא
-            הבסיס לצמיחה, ליעילות ולשקט הנפשי של בעלי עסקים.
+            בעשור האחרון, צללתי לעומקן של מערכות מורכבות, ממערכות CRM בחברות
+            גדולות ועד אתרים ואפליקציות ווב זריזות בסטארטאפים. הניסיון שלי איפשר
+            לי לראות את התמונה הרחבה: קוד הוא לא רק פקודות למחשב, הוא הבסיס
+            לצמיחה, ליעילות ולשקט הנפשי של בעלי עסקים.
           </p>
           <p class="text-slate-300 mb-6 leading-relaxed">
             אני לא רק "מתכנת" – אני ארכיטקט, יועץ ומוביל טכני שמתמחה בהפיכת
@@ -271,7 +278,10 @@
       </div>
     </section>
 
-    <section id="services" class="py-24 relative bg-sky-950/20">
+    <section
+      id="services"
+      class="py-10 md:py-18 lg:py-24 relative bg-sky-950/20"
+    >
       <div class="container mx-auto px-6">
         <div
           class="max-w-3xl text-center mx-auto mb-16"
@@ -308,9 +318,9 @@
                   האתר קרס בקמפיין?
                 </h3>
                 <p class="text-slate-300 leading-relaxed text-sm">
-                  ביום החשוב ביותר, השרת נכנע לעומס? אני בונה ארכיטקטורה חסינת
-                  תקלות וסקיילבילית (Scalability) ב-Java ו-PHP, שתשרוד גם את
-                  עומס הלקוחות הכבד ביותר.
+                  ביום החשוב ביותר, השרת נכנע לעומס? כשבונים מערכת חשוב מאוד
+                  להבין את כמות הלקוחות ש איתם היא תצטרך להתמודד ואין הרגשה יותר
+                  בטוחה מלהעלות קמפיין שעבר בדיקת עומסים כמו שצריך.
                 </p>
               </div>
             </div>
@@ -333,9 +343,9 @@
                   הכל מרגיש איטי ומסורבל?
                 </h3>
                 <p class="text-slate-300 leading-relaxed text-sm">
-                  משתמשים עוזבים אתר איטי. אני מבצע אופטימיזציית Backend, בסיסי
-                  נתונים, וקוד Front-end כדי להבטיח זמני טעינה מהירים וחווית
-                  משתמש חלקה.
+                  3 שניות!!! זה הזמן שהאתר שלך צריך להטען, לפני שהגולשים בורחים,
+                  לא חבל? עבדת קשה להקים אתר אבל הוא לא מתפקד כמו שציפית? אין מה
+                  לדאוג, אני מומחה בלשפר מהירות של אתרים.
                 </p>
               </div>
             </div>
@@ -443,7 +453,10 @@
       </div>
     </section>
 
-    <section id="why-stable" class="py-24 relative bg-slate-900/40">
+    <section
+      id="why-stable"
+      class="py-10 md:py-18 lg:py-24 relative bg-slate-900/40"
+    >
       <div
         class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center"
       >
@@ -526,7 +539,7 @@
                   פרויקטים נבחרים
                 </h2>
                 <p class="text-slate-400 text-lg max-w-xl">
-                  פתרונות Custom-made למערכות מורכבות, מהרעיון ועד ההשקה.
+                  פתרונות מותאמים אישית למערכות מורכבות, מהרעיון ועד ההשקה.
                 </p>
               </div>
               <a
@@ -562,20 +575,20 @@
                 <h3
                   class="text-2xl font-bold text-white mb-2 italic leading-tight"
                 >
-                  שדרוג ארכיטקטורת eCommerce: מהירות ויציבות
+                  תכנון ובנייה של פורטל חתונות
                 </h3>
                 <p class="text-slate-400 mb-4 text-sm">
-                  ביצעתי Refactoring למערכת קיימת ב-PHP, הטמעתי Cache Layer
-                  מתקדם ושיפרתי ביצועים ב-60%.
+                  תכנון מוקפד של פורטל חתונות עיצוב אתר וחווית לקוח מדהימות האתר
+                  מורכב, מנהל עסקים, קופונים, תגובות, יצירת לידים ועוד...
                 </p>
                 <div class="flex flex-wrap gap-2">
                   <span
                     class="text-[10px] font-bold py-1 px-2 glass rounded-full text-sky-400 uppercase"
-                    >PHP 8.2</span
+                    >וורדפרס</span
                   >
                   <span
                     class="text-[10px] font-bold py-1 px-2 glass rounded-full text-sky-400 uppercase"
-                    >Laravel</span
+                    >PHP</span
                   >
                 </div>
               </div>
@@ -600,20 +613,19 @@
                 <h3
                   class="text-2xl font-bold text-white mb-2 italic leading-tight"
                 >
-                  פיתוח Core לסטארטאפ פינטק: אבטחה
+                  פיתוח לחברת משחקים: ממשק ניהול משחקים
                 </h3>
                 <p class="text-slate-400 mb-4 text-sm">
-                  בניית ליבה טכנולוגית (MVP) מאפס ב-Java Spring Boot עם דגש על
-                  אבטחה מקסימלית.
+                  פיתוח פיצ'רים מורכבים, ושיפור מהירות האתר.
                 </p>
                 <div class="flex flex-wrap gap-2">
                   <span
                     class="text-[10px] font-bold py-1 px-2 glass rounded-full text-indigo-400 uppercase"
-                    >Java</span
+                    >Angular.js</span
                   >
                   <span
                     class="text-[10px] font-bold py-1 px-2 glass rounded-full text-indigo-400 uppercase"
-                    >Docker</span
+                    >Fullstack</span
                   >
                 </div>
               </div>
@@ -626,7 +638,7 @@
                   class="relative overflow-hidden rounded-xl mb-6 aspect-video bg-slate-800"
                 >
                   <img
-                    src="./media/images/lachatuna.jpg"
+                    src="./media/images/dominos.png"
                     alt="Project 3"
                     loading="lazy"
                     class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
@@ -635,19 +647,19 @@
                 <h3
                   class="text-2xl font-bold text-white mb-2 italic leading-tight"
                 >
-                  מערכת ניהול נתונים מורכבת
+                  פיתוח ותחזוקה של אתר ואפליקציות Domino's pizza
                 </h3>
                 <p class="text-slate-400 mb-4 text-sm">
-                  פיתוח דאשבורדים בזמן אמת עבור מערכות תעשייתיות גדולות.
+                  פיתוחים חדשים, תחזוקה ותיקוני באגים באתר דומינוס פיצה.
                 </p>
                 <div class="flex flex-wrap gap-2">
                   <span
                     class="text-[10px] font-bold py-1 px-2 glass rounded-full text-sky-400 uppercase"
-                    >React</span
+                    >PHP</span
                   >
                   <span
                     class="text-[10px] font-bold py-1 px-2 glass rounded-full text-sky-400 uppercase"
-                    >PostgreSQL</span
+                    >MySql</span
                   >
                 </div>
               </div>
@@ -660,7 +672,7 @@
                   class="relative overflow-hidden rounded-xl mb-6 aspect-video bg-slate-800"
                 >
                   <img
-                    src="./media/images/groove.png"
+                    src="./media/images/site-checker.png"
                     alt="Project 4"
                     loading="lazy"
                     class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
@@ -669,19 +681,20 @@
                 <h3
                   class="text-2xl font-bold text-white mb-2 italic leading-tight"
                 >
-                  אופטימיזציית תשתיות ענן
+                  עיצוב ופיתוח אתר זיהוי פלאגינים
                 </h3>
                 <p class="text-slate-400 mb-4 text-sm">
-                  ניהול והקמת תשתיות AWS חסינות תקלות ללקוחות Enterprise.
+                  אתר זיהוי של פלאגינים באתרים מתחרים, האתר נטען במהירות שיא,
+                  ומביא תוצאות מדויקות.
                 </p>
                 <div class="flex flex-wrap gap-2">
                   <span
                     class="text-[10px] font-bold py-1 px-2 glass rounded-full text-indigo-400 uppercase"
-                    >AWS</span
+                    >Node.js</span
                   >
                   <span
                     class="text-[10px] font-bold py-1 px-2 glass rounded-full text-indigo-400 uppercase"
-                    >Kubernetes</span
+                    >MongoDB</span
                   >
                 </div>
               </div>
@@ -803,7 +816,8 @@
       class="py-12 border-t border-white/5 text-center text-slate-500 text-sm"
     >
       <p>
-        © 2026 – Senior Fullstack Engineering & Consultation. כל הזכויות שמורות.
+        כל הזכויות שמורות. © 2026 – DevStart - תכנון, פיתוח ותחזוקת אתרים
+        ומערכות.
       </p>
     </footer>
 
