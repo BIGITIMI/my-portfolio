@@ -18,7 +18,9 @@
     />
     <link rel="canonical" href="https://devstart.dev" />
     <!--<script src="https://cdn.tailwindcss.com"></script>-->
-    <link href="./dist/output.css" rel="stylesheet" />
+
+    <link rel="preload" href="dist/output.css" as="style" />
+    <link rel="stylesheet" href="dist/output.css" />
 
     <script
       defer
@@ -32,10 +34,23 @@
       defer
       src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
     ></script>
+
+    <!-- load google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;800&display=swap"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;800&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
+    <!-- end google fonts -->
 
     <meta
       property="og:title"
@@ -83,21 +98,74 @@
     class="antialiased"
   >
     <nav
-      :class="scrolled ? 'glass py-3' : 'bg-transparent glass py-6'"
+      :class="scrolled ? 'glass py-5 pt-6' : 'bg-transparent glass py-6'"
       class="fixed w-full z-50 transition-all duration-300 px-6 md:px-16 flex justify-between items-center"
     >
-      <div class="flex items-center gap-3">
-        <img
-          src="./media/images/logo.png"
-          alt="DevStart Logo"
-          class="h-8 w-auto object-contain"
-        />
+      <a
+        href="#"
+        class="flex items-center gap-3 hover:opacity-80 transition-opacity group"
+        aria-label="חזרה לראש הדף"
+      >
+        <div class="flex items-center gap-1">
+          <div class="text-2xl font-black tracking-tighter leading-none">
+            <span class="text-white">DEV</span
+            ><span class="text-sky-400">START</span>
+          </div>
 
-        <div class="text-2xl font-black tracking-tighter line-height-none">
-          <span class="text-white">DEV</span
-          ><span class="text-sky-400">START</span>
+          <svg
+            viewBox="0 0 640 512"
+            class="h-8 w-auto fill-sky-400 drop-shadow-[0_0_8px_rgba(56,189,248,0.5)]"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-label="DevStart Logo"
+          >
+            <path
+              d="M255.03 261.65c6.25 6.25 16.38 6.25 22.63 0l11.31-11.31c6.25-6.25 6.25-16.38 0-22.63L253.25 192l35.71-35.72c6.25-6.25 6.25-16.38 0-22.63l-11.31-11.31c-6.25-6.25-16.38-6.25-22.63 0l-58.34 58.34c-6.25 6.25-6.25 16.38 0 22.63l58.35 58.34zm96.01-11.3l11.31 11.31c6.25 6.25 16.38 6.25 22.63 0l58.34-58.34c6.25-6.25 6.25-16.38 0-22.63l-58.34-58.34c-6.25-6.25-16.38-6.25-22.63 0l-11.31 11.31c-6.25 6.25-6.25 16.38 0 22.63L386.75 192l-35.71 35.72c-6.25 6.25-6.25 16.38 0 22.63zM624 416H381.54c-.74 19.81-14.71 32-32.74 32H288c-18.69 0-33.02-17.47-32.77-32H16c-8.8 0-16 7.2-16 16v16c0 35.2 28.8 64 64 64h512c35.2 0 64-28.8 64-64v-16c0-8.8-7.2-16-16-16zM576 48c0-26.4-21.6-48-48-48H112C85.6 0 64 21.6 64 48v336h512V48zm-64 272H128V64h384v256z"
+            />
+          </svg>
         </div>
+      </a>
+
+      <!-- mobile hamburger -->
+      <button
+        id="menu-btn"
+        class="block md:hidden text-white focus:outline-none z-50"
+      >
+        <svg
+          id="menu-icon"
+          class="w-8 h-8 transition-transform duration-300"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16m-7 6h7"
+          ></path>
+        </svg>
+      </button>
+
+      <div
+        id="mobile-menu"
+        class="fixed top-19 right-0 left-0 bg-slate-900/95 backdrop-blur-lg z-40 flex flex-col items-center justify-center gap-8 text-2xl font-bold text-white transition-all duration-300 translate-x-full"
+      >
+        <a href="#hero" class="hover:text-sky-400 transition-colors">בית</a>
+        <a href="#services" class="hover:text-sky-400 transition-colors"
+          >שירותים</a
+        >
+        <a href="#portfolio" class="hover:text-sky-400 transition-colors"
+          >תיק עבודות</a
+        >
+        <a
+          href="#contact"
+          class="hover:text-sky-400 transition-colors text-sky-400 border border-sky-400 px-6 py-2 rounded-full"
+          >צרו קשר</a
+        >
       </div>
+      <!-- end mobile hamburger -->
+
       <div
         class="hidden md:flex space-x-reverse space-x-8 font-medium text-sm uppercase tracking-widest"
       >
@@ -208,7 +276,8 @@
             <img
               src="./media/images/profile.png"
               alt="Profile picture"
-              class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700"
+              fetchpriority="high"
+              class="w-full h-full object-cover grayscale-0 md:grayscale md:hover:grayscale-0 transition duration-700"
             />
             <div
               class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-slate-900 to-transparent"
@@ -943,6 +1012,32 @@
               status.classList.add("hidden");
             }, 5000);
           });
+      });
+
+      // hamburger
+      const menuBtn = document.getElementById("menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const menuIcon = document.getElementById("menu-icon");
+      const menuLinks = document.querySelectorAll("#mobile-menu a");
+
+      menuBtn.addEventListener("click", () => {
+        // פתיחה/סגירה של התפריט (הזזה מהצד)
+        mobileMenu.classList.toggle("translate-x-full");
+
+        // שינוי האייקון בין המבורגר ל-X
+        const isOpen = !mobileMenu.classList.contains("translate-x-full");
+        menuIcon.innerHTML = isOpen
+          ? '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>'
+          : '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>';
+      });
+
+      // סגירת התפריט בלחיצה על קישור (כדי שיעבור לאזור המבוקש)
+      menuLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.add("translate-x-full");
+          menuIcon.innerHTML =
+            '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>';
+        });
       });
 
       const schema = {
